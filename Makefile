@@ -41,12 +41,12 @@ image:
 		--build-arg SCHEMA_CMD="$(SCHEMA_CMD)" \
 		. -t tomekzaw/io-lab-docker-ci:latest
   # TODO: last part of this command that tags just built image with a specyfic tag
-	docker tag tomekzaw/io-lab-docker-ci tomekzaw/io-lab-docker-ci:v1.0
+	docker tag tomekzaw/io-lab-docker-ci tomekzaw/io-lab-docker-ci:$(TAG)
 
 push: image
 	# TODO: two commands, first pushes the latest image, second pushes the image tagged with specyfic tag
 	docker image push tomekzaw/io-lab-docker-ci:latest
-	docker image push tomekzaw/io-lab-docker-ci:v1.0
+	docker image push tomekzaw/io-lab-docker-ci:$(TAG)
 	
 clean:
 
